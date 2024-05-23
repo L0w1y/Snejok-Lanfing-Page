@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button"
 import { JSX, SVGProps } from "react"
 // import { url } from "inspector";
 import Cover from "/public/cover.png";
-import Avatar1 from "@/public/artworks/wm7qcP9qG1Q.jpg";
-import Avatar2 from "@/public/artworks/LM7F0uMdEU8.jpg";
-import Avatar3 from "@/public/artworks/MLA3TcFokaM.jpg";
-import Avatar4 from "@/public/artworks/MLAPTcFokaM.jpg";
+import Avatar1 from "/public/artworks/wm7qcP9qG1Q.jpg";
+import Avatar2 from "/public/artworks/LM7F0uMdEU8.jpg";
+import Avatar3 from "/public/artworks/MLA3TcFokaM.jpg";
+import Avatar4 from "/public/artworks/MLAPTcFokaM.jpg";
 import Placeholder from "/public/placeholder.svg";
 
 export default function Home() {
