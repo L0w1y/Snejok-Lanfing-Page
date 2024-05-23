@@ -87,10 +87,6 @@ export default function Home() {
                   src="artworks/MLAPTcFokaM.jpg"
                   width="300"
                 />
-                {/* <div className="mt-2 text-center">
-                  <h3 className="text-sm font-semibold">Avatar name</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Sample pack</p>
-                </div> */}
               </div>
               
               {/* End of Showcase Our Creativity */}
