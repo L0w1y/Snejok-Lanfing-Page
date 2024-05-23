@@ -146,7 +146,9 @@ export default function Home() {
                       </ul>
                     </CardContent>
                     <CardFooter>
+
                       {/* <Button>Get Started</Button> */}
+                      
                     </CardFooter>
                   </Card>
                   <Card className="h-full">
@@ -227,7 +229,9 @@ export default function Home() {
                       </ul>
                     </CardContent>
                     <CardFooter>
+
                       {/* <Button>Get Started</Button> */}
+
                     </CardFooter>
                   </Card>
                   <Card className="h-full">
