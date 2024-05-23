@@ -33,3 +33,7 @@ img {
     text-wrap: balance;
   }
 }
+
+* {
+  user-select: none;
+}
