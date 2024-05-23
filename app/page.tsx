@@ -5,9 +5,9 @@ import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card }
 import { Button } from "@/components/ui/button"
 // import { CheckIcon } from "lucide-react"
 import { JSX, SVGProps } from "react"
-import { url } from "inspector";
-import Cover from "https://cdn.discordapp.com/attachments/1014938805897285652/1243121141678080071/VRChat_2024-05-07_00-19-09.531_3840x21601.png";
-import Placeholder from "https://cdn.discordapp.com/attachments/1014938805897285652/1243122490507526215/placeholder.svg";
+// import { url } from "inspector";
+import Cover from "/cover.png";
+import Placeholder from "/placeholder.svg";
 
 export default function Home() {
   return (
