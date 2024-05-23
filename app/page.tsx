@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 // import { CheckIcon } from "lucide-react"
 import { JSX, SVGProps } from "react"
 // import { url } from "inspector";
-import Cover from "/cover.png";
-import Placeholder from "/placeholder.svg";
+import Cover from "/public/cover.png";
+import Placeholder from "/public/placeholder.svg";
 
 export default function Home() {
   return (
