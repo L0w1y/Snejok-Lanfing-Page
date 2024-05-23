@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 // import { CheckIcon } from "lucide-react"
 import { JSX, SVGProps } from "react"
 import { url } from "inspector";
-import Cover from "/cover.png";
-import Placeholder from "/placeholder.svg";
+import Cover from "https://cdn.discordapp.com/attachments/1014938805897285652/1243121141678080071/VRChat_2024-05-07_00-19-09.531_3840x21601.png";
+import Placeholder from "https://cdn.discordapp.com/attachments/1014938805897285652/1243122490507526215/placeholder.svg";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             alt="Hero"
-            src="/cover.png"
+            src={Cover}
             layout="fill"
             objectFit="cover"
           />
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Showcase Your Creativity</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Showcase Our Creativity</h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Check out some of the amazing avatars created with love.
               </p>
@@ -58,7 +58,7 @@ export default function Home() {
                   alt="Avatar 1"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/placeholder.svg"
+                  src={Placeholder}
                   width="300"
                   />
                   <h3 className="text-sm font-semibold">Avatar name</h3>
@@ -70,7 +70,7 @@ export default function Home() {
                   alt="Avatar 2"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/placeholder.svg"
+                  src={Placeholder}
                   width="300"
                 />
                 <div className="mt-2 text-center">
@@ -83,7 +83,7 @@ export default function Home() {
                   alt="Avatar 3"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/placeholder.svg"
+                  src={Placeholder}
                   width="300"
                 />
                 <div className="mt-2 text-center">
@@ -96,7 +96,7 @@ export default function Home() {
                   alt="Avatar 4"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/placeholder.svg"
+                  src={Placeholder}
                   width="300"
                 />
                 <div className="mt-2 text-center">
