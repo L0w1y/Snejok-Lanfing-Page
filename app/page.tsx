@@ -4,16 +4,7 @@ import Image from "next/image";
 import Link from "next/link"
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
-// import { Button } from "@/components/ui/button"
-// import { CheckIcon } from "lucide-react"
 import { JSX, SVGProps } from "react"
-// import { url } from "inspector";
-// import Cover from "public/cover.png"; 
-// import Avatar1 from "public/artworks/wm7qcP9qG1Q.jpg"; 
-// import Avatar2 from "public/artworks/LM7F0uMdEU8.jpg";
-// import Avatar3 from "public/artworks/MLA3TcFokaM.jpg";
-// import Avatar4 from "public/artworks/MLAPTcFokaM.jpg"; 
-// import Placeholder from "/public/placeholder.svg";
 
 export default function Home() {
   return (
@@ -22,7 +13,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             alt="Hero"
-            src="/cover.png"
+            src="cover.png"
             layout="fill"
             objectFit="cover"
           />
@@ -65,7 +56,7 @@ export default function Home() {
                   alt="Avatar 1"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/artworks/wm7qcP9qG1Q.jpg"
+                  src="artworks/wm7qcP9qG1Q.jpg"
                   width="300"
                   />
               </div>
@@ -74,7 +65,7 @@ export default function Home() {
                   alt="Avatar 2"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/artworks/LM7F0uMdEU8.jpg"
+                  src="artworks/LM7F0uMdEU8.jpg"
                   width="300"
                 />
               </div>
@@ -83,7 +74,7 @@ export default function Home() {
                   alt="Avatar 3"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/artworks/MLA3TcFokaM.jpg"
+                  src="artworks/MLA3TcFokaM.jpg"
                   width="300"
                 />
               </div>
@@ -92,7 +83,7 @@ export default function Home() {
                   alt="Avatar 4"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="/artworks/MLAPTcFokaM.jpg"
+                  src="artworks/MLAPTcFokaM.jpg"
                   width="300"
                 />
                 {/* <div className="mt-2 text-center">
