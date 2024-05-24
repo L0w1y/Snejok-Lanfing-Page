@@ -1,27 +1,14 @@
 [
     {
-        "name": "",
-        "description": "",
-        "cover": ""
+        "name": "Avatar 1",
+        "description": "Avatar 1 sample description, what contains such data, as descriptioon of artwork",
+        "cover": "/samples/EGjXjFchipU.jpg",
+        "price": "$12"
     },
     {
-        "name": "",
-        "description": "",
-        "cover": ""
-    },
-    {
-        "name": "",
-        "description": "",
-        "cover": ""
-    },
-    {
-        "name": "",
-        "description": "",
-        "cover": ""
-    },
-    {
-        "name": "",
-        "description": "",
-        "cover": ""
+        "name": "Avatar 2",
+        "description": "Avatar 2 sample description, what contains such data, as descriptioon of artwork",
+        "cover": "/samples/EGjXjFchipU.jpg",
+        "price": "$12"
     }
 ]

@@ -28,10 +28,10 @@ body {
 img {
   object-fit: cover;
 }
-
+/* 
 * {
   user-select: none;
-}
+} */
 
 @layer utilities {
   .text-balance {

@@ -4,12 +4,25 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
-import { JSX, SVGProps } from "react"
+import { JSX, SVGProps, useState, useEffect, useRef  } from "react"
+
+import cardData from "@/public/data/samples.json"
 
 export default function Home() {
+
+  const [cards, setCards] = useState(cardData);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const cardRefs = useRef([]);
+  const carouselRef = useRef(null);
+
+  // Add a new card to the cardRefs array when a new card is rendered
+  useEffect(() => {
+    cardRefs.current = cards.map((_, index) => (cardRefs.current[index] || useRef(null)));
+  }, [cards]);
+
   return (
     <>
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
             alt="Hero"
@@ -17,7 +30,7 @@ export default function Home() {
             layout="fill"
             objectFit="cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent from-1% to-white dark:to-black"/>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% to-white dark:to-black"/>
         </div>
         <div className="container px-4 md:px-6 relative z-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
@@ -39,7 +52,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-black relative z-10">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black relative z-10 flex items-center justify-center">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-10 text-center">
             <div className="space-y-2">
@@ -48,44 +61,65 @@ export default function Home() {
                 Check out some of the amazing avatars created with love.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+            {/* Carousel container */}
+
+            <div ref={carouselRef} className="relative overflow-hidden w-full max-w-[900px]  lg:max-w-[1200px]">
+              {/* 'use client' - For client-side rendering - you need to use this directive inside JSX in order to access the browser DOM and apply the transitions */}
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                  {
+                    cards.map((card, index) => (
+                      <div
+                      key={index}
+                      ref={cardRefs.current[index]}
+                      className="w-full flex-shrink-0 relative"
+                      style={{minWidth: "280px"}}
+                      >
+                        <Card className="w-full min-w-[280px]">
+                          <Image
+                            alt={card.name} // Use the 'name' field from the JSON
+                            className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
+                            height={600}
+                            src={card.cover} // Use the 'cover' field from the JSON
+                            width={600}
+                          />
+                          <CardContent className="p-6 space-y-10 text-left">
+                            <div className="space-y-2">
+                              <h3 className="text-xl font-semibold">
+                                {card.name}
+                              </h3>
+                              <p className="text-gray-600 dark:text-gray-300">
+                                {card.description}
+                              </p>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-2xl font-bold">{card.price}</span>
+                              <Link 
+                                className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                                href="#pricing">View pricing</Link>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                      </div>
+                    ))
+                  }
+                </div>
 
               {/* Showcase Our Creativity */}
 
-              <Card className="w-full max-w-md">
+              <Card className="w-full min-w-[280px]">
                 <Image
                 alt="ArtworkThumbnail"
-                className="aspect-[4/3] object-cover rounded-t-lg opacity-100 dark:opacity-50"
-                height={700}
-                src="/artworks/EGjXjFchipU.jpg"
-                width={700}>
+                className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
+                height={600}
+                src="/samples/EGjXjFchipU.jpg"
+                width={600}>
                 </Image>
                 <CardContent className="p-6 space-y-10 text-left">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">
-                      Avatar name
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Explore the boundless realm of abstract art with this captivating collection.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold">$49</span>
-                    <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
-                    href="#pricing">View pricing</Link>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="w-full max-w-md">
-                <Image
-                alt="ArtworkThumbnail"
-                className="aspect-[4/3] object-cover rounded-t-lg opacity-100 dark:opacity-50"
-                height={700}
-                src="/artworks/LM7F0uMdEU8.jpg"
-                width={700}>
-                </Image>
-                <CardContent className="p-6 space-y-10 text-left">
-                  <div className="space-y-2">
+                  <div className="space-y-2 ">
                     <h3 className="text-xl font-semibold">
                       Avatar name
                     </h3>
@@ -101,42 +135,8 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              {/* <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-950">
-                <Image
-                  alt="Avatar 1"
-                  className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
-                  height="300"
-                  src="/artworks/wm7qcP9qG1Q.jpg"
-                  width="300"
-                  />
-              </div>
-              <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-950">
-                <Image
-                  alt="Avatar 2"
-                  className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
-                  height="300"
-                  src="/artworks/LM7F0uMdEU8.jpg"
-                  width="300"
-                />
-              </div>
-              <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-950">
-                <Image
-                  alt="Avatar 3"
-                  className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
-                  height="300"
-                  src="/artworks/MLA3TcFokaM.jpg"
-                  width="300"
-                />
-              </div>
-              <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-950">
-                <Image
-                  alt="Avatar 4"
-                  className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
-                  height="300"
-                  src="/artworks/MLAPTcFokaM.jpg"
-                  width="300"
-                />
-              </div> */}
+              {/* Make a carousell from cards right here!, using row layout
+              Each card, be like a previous. Card's rotate's infinity times */}
               
               {/* End of Showcase Our Creativity */}
 
@@ -144,7 +144,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10">
+      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10 flex items-center justify-center">
         <div className="container px-4 md:px-6 space-y-10" id="pricing">
           <div className="space-y-2 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Artwork pricing</h2>
@@ -332,18 +332,18 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10">
+      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10 flex items-center justify-center">
         <div className="container px-4 md:px-6">
           <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
             <div className="flex flex-col justify-center space-y-10">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">About Us</div>
+              <div className="space-y-8">
+                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">About Me</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Unleash Your Digital Creativity</h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   I&apos;m SnejOk, a passionate furry artist with a knack for crafting mesmerizing 3D avatars and captivating artworks. Through my vibrant and whimsical creations, I strive to bring joy, spark imagination, and capture the unique essence of characters. With meticulous attention to detail, I aim to create pieces that evoke a sense of liveliness and leave a lasting impression. Join me on this exciting journey as we explore the boundless possibilities of furry art and celebrate the beauty of individuality together!
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <div className="flex flex-col gap-2 min-[500px]:flex-row">
                 <Link
                   className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
                   href="https://t.me/SnejOkWinter">Send Telegram
