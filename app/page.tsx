@@ -1,5 +1,4 @@
 'use client'
-
 import Image from "next/image";
 import Link from "next/link"
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
@@ -13,7 +12,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             alt="Hero"
-            src="cover.png"
+            src="/cover.png"
             layout="fill"
             objectFit="cover"
           />
@@ -57,7 +56,7 @@ export default function Home() {
                   alt="Avatar 1"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="artworks/wm7qcP9qG1Q.jpg"
+                  src="/artworks/wm7qcP9qG1Q.jpg"
                   width="300"
                   />
               </div>
@@ -66,7 +65,7 @@ export default function Home() {
                   alt="Avatar 2"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="artworks/LM7F0uMdEU8.jpg"
+                  src="/artworks/LM7F0uMdEU8.jpg"
                   width="300"
                 />
               </div>
@@ -75,7 +74,7 @@ export default function Home() {
                   alt="Avatar 3"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="artworks/MLA3TcFokaM.jpg"
+                  src="/artworks/MLA3TcFokaM.jpg"
                   width="300"
                 />
               </div>
@@ -84,7 +83,7 @@ export default function Home() {
                   alt="Avatar 4"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
                   height="300"
-                  src="artworks/MLAPTcFokaM.jpg"
+                  src="/artworks/MLAPTcFokaM.jpg"
                   width="300"
                 />
               </div>
