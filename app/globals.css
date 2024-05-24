@@ -22,10 +22,15 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    justify-content: center;
 }
 
 img {
   object-fit: cover;
+}
+
+* {
+  user-select: none;
 }
 
 @layer utilities {

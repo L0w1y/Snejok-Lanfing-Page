@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import { JSX, SVGProps } from "react"
@@ -22,10 +23,10 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start space-y-10">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Bring Your Digital Identity to Life
+                <h1 className="text-3xl max-w-[500px] font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  Bring Your Digital Identity - to Life
                 </h1>
-                <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+                <p className="max-w-[600px] text-gray-700 md:text-xl dark:text-gray-300">
                   Create a unique, customizable avatar that represents you online. Our powerful avatar creator makes it
                   easy to express your personality.
                 </p>
@@ -38,9 +39,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800 relative z-10">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-black relative z-10">
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="flex flex-col items-center justify-center space-y-10 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl space-y-20">Showcase Our Creativity</h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -51,7 +52,56 @@ export default function Home() {
 
               {/* Showcase Our Creativity */}
 
-              <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-950">
+              <Card className="w-full max-w-md">
+                <Image
+                alt="ArtworkThumbnail"
+                className="aspect-[4/3] object-cover rounded-t-lg opacity-100 dark:opacity-50"
+                height={700}
+                src="/artworks/EGjXjFchipU.jpg"
+                width={700}>
+                </Image>
+                <CardContent className="p-6 space-y-10 text-left">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">
+                      Avatar name
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      Explore the boundless realm of abstract art with this captivating collection.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold">$49</span>
+                    <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
+                    href="#pricing">View pricing</Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="w-full max-w-md">
+                <Image
+                alt="ArtworkThumbnail"
+                className="aspect-[4/3] object-cover rounded-t-lg opacity-100 dark:opacity-50"
+                height={700}
+                src="/artworks/LM7F0uMdEU8.jpg"
+                width={700}>
+                </Image>
+                <CardContent className="p-6 space-y-10 text-left">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">
+                      Avatar name
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      Explore the boundless realm of abstract art with this captivating collection.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold">$49</span>
+                    <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
+                    href="#pricing">View pricing</Link>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-950">
                 <Image
                   alt="Avatar 1"
                   className="mx-auto aspect-square overflow-hidden rounded-lg object-cover"
@@ -86,7 +136,7 @@ export default function Home() {
                   src="/artworks/MLAPTcFokaM.jpg"
                   width="300"
                 />
-              </div>
+              </div> */}
               
               {/* End of Showcase Our Creativity */}
 
