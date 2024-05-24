@@ -1,26 +1,32 @@
 [
     {
-        "name": "Avatar 1",
-        "description": "Avatar 1 sample description, what contains such data, as descriptioon of artwork",
+        "name": "",
+        "description": "",
         "cover": "/samples/EGjXjFchipU.jpg",
-        "price": "$12"
+        "price": ""
     },
     {
-        "name": "Avatar 2",
-        "description": "Avatar 2 sample description, what contains such data, as descriptioon of artwork",
+        "name": "",
+        "description": "",
+        "cover": "/samples/LM7F0uMdEU8.jpg",
+        "price": ""
+    },
+    {
+        "name": "",
+        "description": "",
         "cover": "/samples/MLA3TcFokaM.jpg",
-        "price": "$12"
+        "price": ""
     },
     {
-        "name": "Avatar 3",
-        "description": "Avatar 3 sample description, what contains such data, as descriptioon of artwork",
-        "cover": "/samples/EGjXjFchipU.jpg",
-        "price": "$12"
+        "name": "",
+        "description": "",
+        "cover": "/samples/MLAPTcFokaM.jpg",
+        "price": ""
     },
     {
-        "name": "Avatar 4",
-        "description": "Avatar 4 sample description, what contains such data, as descriptioon of artwork",
-        "cover": "/samples/MLA3TcFokaM.jpg",
-        "price": "$12"
+        "name": "",
+        "description": "",
+        "cover": "/samples/wm7qcP9qG1Q.jpg",
+        "price": ""
     }
 ]

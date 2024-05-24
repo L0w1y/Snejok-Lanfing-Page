@@ -11,7 +11,6 @@ import cardData from "@/public/data/samples.json"
 export default function Home() {
 
   const [cards, setCards] = useState(cardData);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -64,15 +63,10 @@ export default function Home() {
               </p>
             </div>
             {/* Carousel container */}
-            <div ref={carouselRef} className="relative overflow-x-auto w-full">
-              <div
-                className="flex gap-[20px] py-10">
-                  {
+            <div ref={carouselRef} className="relative w-full min-h-[500px] overflow-x-auto">
+              <div className="flex flex-shrink-0 flex-nowrap gap-6 p-[20px]"> {
                     cards.map((card, index) => (
-                      <div
-                      key={index}
-                      className="relative flex-shrink-0">
-                        <Card className="w-[500px] min-w-[280px]">
+                      <Card key={index} className="relative w-full min-w-[300px] max-w-[600px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px]">
                           <Image
                             alt="ArtworkThumbnail"
                             className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
@@ -95,44 +89,9 @@ export default function Home() {
                                 href="#pricing">View pricing</Link>
                             </div>
                           </CardContent>
-                        </Card>
-                      </div>
+                      </Card>
                     ))
-                  }
-                </div>
-
-              {/* Showcase Our Creativity */}
-
-              {/* <Card className="w-full min-w-[280px]">
-                <Image
-                alt="ArtworkThumbnail"
-                className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
-                height={600}
-                src="/samples/EGjXjFchipU.jpg"
-                width={600}>
-                </Image>
-                <CardContent className="p-6 space-y-10 text-left">
-                  <div className="space-y-2 ">
-                    <h3 className="text-xl font-semibold">
-                      Avatar name
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Explore the boundless realm of abstract art with this captivating collection.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold">$49</span>
-                    <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
-                    href="#pricing">View pricing</Link>
-                  </div>
-                </CardContent>
-              </Card> */}
-
-              {/* Make a carousell from cards right here!, using row layout
-              Each card, be like a previous. Card's rotate's infinity times */}
-              
-              {/* End of Showcase Our Creativity */}
-
+                  }</div>
             </div>
           </div>
         </div>
