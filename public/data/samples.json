@@ -8,7 +8,19 @@
     {
         "name": "Avatar 2",
         "description": "Avatar 2 sample description, what contains such data, as descriptioon of artwork",
+        "cover": "/samples/MLA3TcFokaM.jpg",
+        "price": "$12"
+    },
+    {
+        "name": "Avatar 3",
+        "description": "Avatar 3 sample description, what contains such data, as descriptioon of artwork",
         "cover": "/samples/EGjXjFchipU.jpg",
+        "price": "$12"
+    },
+    {
+        "name": "Avatar 4",
+        "description": "Avatar 4 sample description, what contains such data, as descriptioon of artwork",
+        "cover": "/samples/MLA3TcFokaM.jpg",
         "price": "$12"
     }
 ]

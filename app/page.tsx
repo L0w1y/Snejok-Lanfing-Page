@@ -12,17 +12,19 @@ export default function Home() {
 
   const [cards, setCards] = useState(cardData);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const cardRefs = useRef([]);
   const carouselRef = useRef(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Add a new card to the cardRefs array when a new card is rendered
   useEffect(() => {
-    cardRefs.current = cards.map((_, index) => (cardRefs.current[index] || useRef(null)));
+    // Обновляем cardRefs, чтобы он соответствовал количеству карточек
+    cardRefs.current = cards.map((_, index) => 
+      cardRefs.current[index]
+    );
   }, [cards]);
 
   return (
     <>
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative flex items-center justify-center">
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative flex items-center justify-center" id="welcome">
         <div className="absolute inset-0">
           <Image
             alt="Hero"
@@ -52,7 +54,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black relative z-10 flex items-center justify-center">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black relative z-10 flex items-center justify-center" id="artworks">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-10 text-center">
             <div className="space-y-2">
@@ -61,32 +63,25 @@ export default function Home() {
                 Check out some of the amazing avatars created with love.
               </p>
             </div>
-
             {/* Carousel container */}
-
-            <div ref={carouselRef} className="relative overflow-hidden w-full max-w-[900px]  lg:max-w-[1200px]">
-              {/* 'use client' - For client-side rendering - you need to use this directive inside JSX in order to access the browser DOM and apply the transitions */}
+            <div ref={carouselRef} className="relative overflow-x-auto w-full">
               <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                className="flex gap-[20px] py-10">
                   {
                     cards.map((card, index) => (
                       <div
                       key={index}
-                      ref={cardRefs.current[index]}
-                      className="w-full flex-shrink-0 relative"
-                      style={{minWidth: "280px"}}
-                      >
-                        <Card className="w-full min-w-[280px]">
+                      className="relative flex-shrink-0">
+                        <Card className="w-[500px] min-w-[280px]">
                           <Image
-                            alt={card.name} // Use the 'name' field from the JSON
+                            alt="ArtworkThumbnail"
                             className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
                             height={600}
-                            src={card.cover} // Use the 'cover' field from the JSON
-                            width={600}
-                          />
+                            src={card.cover}
+                            width={600}>
+                          </Image>
                           <CardContent className="p-6 space-y-10 text-left">
-                            <div className="space-y-2">
+                            <div className="space-y-2 ">
                               <h3 className="text-xl font-semibold">
                                 {card.name}
                               </h3>
@@ -96,13 +91,11 @@ export default function Home() {
                             </div>
                             <div className="flex items-center justify-between">
                               <span className="text-2xl font-bold">{card.price}</span>
-                              <Link 
-                                className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                              <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
                                 href="#pricing">View pricing</Link>
                             </div>
                           </CardContent>
                         </Card>
-
                       </div>
                     ))
                   }
@@ -110,7 +103,7 @@ export default function Home() {
 
               {/* Showcase Our Creativity */}
 
-              <Card className="w-full min-w-[280px]">
+              {/* <Card className="w-full min-w-[280px]">
                 <Image
                 alt="ArtworkThumbnail"
                 className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
@@ -133,7 +126,7 @@ export default function Home() {
                     href="#pricing">View pricing</Link>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
 
               {/* Make a carousell from cards right here!, using row layout
               Each card, be like a previous. Card's rotate's infinity times */}
@@ -144,8 +137,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10 flex items-center justify-center">
-        <div className="container px-4 md:px-6 space-y-10" id="pricing">
+      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10 flex items-center justify-center" id="pricing">
+        <div className="container px-4 md:px-6 space-y-10">
           <div className="space-y-2 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Artwork pricing</h2>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -153,7 +146,7 @@ export default function Home() {
               features.
             </p>
           </div>
-          <div className="mx-auto mt-8 max-w-3xl ">
+          <div className="mx-auto mt-8 max-w-3xl "> {/* Chosing between textures, avatars */}
             <Tabs className="w-full space-y-5" defaultValue="textures">
               <TabsList className="grid w-[300px] grid-cols-2 rounded-full mx-auto">
                 <TabsTrigger className="rounded-full" value="textures">
@@ -332,9 +325,9 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10 flex items-center justify-center">
+      <section className="w-full py-12 md:py-24 lg:py-32 relative z-10 flex items-center justify-center" id="contacts">
         <div className="container px-4 md:px-6">
-          <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+          <div className="grid items-center gap-6 lg:grid-cols-[fr_200px] lg:gap-12 xl:grid-cols-[1fr_550px]">
             <div className="flex flex-col justify-center space-y-10">
               <div className="space-y-8">
                 <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">About Me</div>
