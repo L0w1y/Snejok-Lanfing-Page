@@ -126,7 +126,7 @@ export default function Home() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="space-y-1">
-                        <h3 className="text-4xl font-bold">from 18$</h3>
+                        <h3 className="text-4xl font-bold">from $18</h3>
                         <p className="text-gray-500 dark:text-gray-400">*price is not fixed</p>
                       </div>
                       <ul className="space-y-2 text-sm">
@@ -157,7 +157,7 @@ export default function Home() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="space-y-1">
-                        <h3 className="text-4xl font-bold">from 30$</h3>
+                        <h3 className="text-4xl font-bold">from $30</h3>
                         <p className="text-gray-500 dark:text-gray-400">*price is not fixed</p>
                       </div>
                       <ul className="space-y-2 text-sm">
@@ -175,7 +175,7 @@ export default function Home() {
                         </li>
                         <li>
                           <CheckIcon className="mr-2 inline-block h-4 w-4 text-green-500" />
-                          Complicated emssions
+                          Complicated emissions
                         </li>
                       </ul>
                     </CardContent>
@@ -215,7 +215,7 @@ export default function Home() {
                         </li>
                         <li>
                           <CheckIcon className="mr-2 inline-block h-4 w-4 text-green-500" />
-                          Up to 4 custom clothers included
+                          Up to 4 custom clothes included
                         </li>
                         <li>
                           <CheckIcon className="mr-2 inline-block h-4 w-4 text-green-500" />
@@ -254,7 +254,7 @@ export default function Home() {
                         </li>
                         <li>
                           <CheckIcon className="mr-2 inline-block h-4 w-4 text-green-500" />
-                          Up to 8 custom clothers included
+                          Up to 8 custom clothes included
                         </li>
                         <li>
                           <CheckIcon className="mr-2 inline-block h-4 w-4 text-green-500" />
