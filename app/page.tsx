@@ -47,7 +47,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
-                href="#pricing">Create Avatar</Link>
+                  href="#selection.avatar">Create Avatar</Link>
               </div>
             </div>
           </div>
@@ -63,19 +63,19 @@ export default function Home() {
               </p>
             </div>
             {/* Carousel container */}
-            <div ref={carouselRef} className="relative w-full min-h-[500px] overflow-x-auto">
-              <div className="flex flex-shrink-0 flex-nowrap gap-6 p-[20px]"> {
+            <div ref={carouselRef} className="relative w-full overflow-x-scroll overscroll-behavior-x-contain">
+              <div className="flex flex-shrink-0 flex-nowrap gap-6 py-[20px]">{
                     cards.map((card, index) => (
                       <Card key={index} className="relative w-full min-w-[300px] max-w-[600px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px]">
                           <Image
                             alt="ArtworkThumbnail"
-                            className="object-cover rounded-t-lg opacity-100 dark:opacity-50"
+                            className="object-cover rounded-lg opacity-70 dark:opacity-50"
                             height={600}
                             src={card.cover}
                             width={600}>
                           </Image>
-                          <CardContent className="p-6 space-y-10 text-left">
-                            <div className="space-y-2 ">
+                          {/* <CardContent className=""> */}
+                            {/* <div className="space-y-2 ">
                               <h3 className="text-xl font-semibold">
                                 {card.name}
                               </h3>
@@ -87,11 +87,10 @@ export default function Home() {
                               <span className="text-2xl font-bold">{card.price}</span>
                               <Link className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300" 
                                 href="#pricing">View pricing</Link>
-                            </div>
-                          </CardContent>
+                            </div> */}
+                          {/* </CardContent> */}
                       </Card>
-                    ))
-                  }</div>
+              ))}</div>
             </div>
           </div>
         </div>
@@ -108,10 +107,10 @@ export default function Home() {
           <div className="mx-auto mt-8 max-w-3xl "> {/* Chosing between textures, avatars */}
             <Tabs className="w-full space-y-5" defaultValue="textures">
               <TabsList className="grid w-[300px] grid-cols-2 rounded-full mx-auto">
-                <TabsTrigger className="rounded-full" value="textures">
+                <TabsTrigger className="rounded-full" value="textures" id="selection.textures">
                   Textures
                 </TabsTrigger>
-                <TabsTrigger className="rounded-full" value="avatars">
+                <TabsTrigger className="rounded-full" value="avatars" id="selection.avatar">
                   Avatars
                 </TabsTrigger>
               </TabsList>
