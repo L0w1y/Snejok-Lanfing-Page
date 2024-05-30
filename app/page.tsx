@@ -63,16 +63,18 @@ export default function Home() {
               </p>
             </div>
             {/* Carousel container */}
-            <div ref={carouselRef} className="relative w-full overflow-x-scroll overscroll-behavior-x-contain">
+            <div ref={carouselRef} className="relative w-full h-[500px] overflow-x-scroll overscroll-behavior-x-contain">
               <div className="flex flex-shrink-0 flex-nowrap gap-6 py-[20px]">{
                     cards.map((card, index) => (
-                      <Card key={index} className="relative w-full min-w-[300px] max-w-[600px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px]">
+                      <Card key={index} className="relative h-336 aspect-ratio-[16-9] min-w-[300px] max-w-[600px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px]">
                           <Image
                             alt="ArtworkThumbnail"
-                            className="object-cover rounded-lg opacity-70 dark:opacity-50"
-                            height={600}
+                            className="w-full h-full object-cover rounded-lg opacity-70 dark:opacity-50"
                             src={card.cover}
-                            width={600}>
+                            loading="eager"
+                            height={300}
+                            width={600}
+                            >
                           </Image>
                           {/* <CardContent className=""> */}
                             {/* <div className="space-y-2 ">
