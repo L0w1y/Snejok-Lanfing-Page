@@ -76,6 +76,8 @@ export default function Home() {
                             width={600}
                             >
                           </Image>
+
+                          {/* That's be used for artwork descriptions or any type of additionaly information */}
                           {/* <CardContent className=""> */}
                             {/* <div className="space-y-2 ">
                               <h3 className="text-xl font-semibold">
